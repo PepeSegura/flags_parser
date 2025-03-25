@@ -15,17 +15,22 @@ typedef struct
 	const char	*long_name;	// Long flag (e.g., "verbose" for --verbose)
 	int			has_arg;	// 1 if the flag expects an argument (e.g., -o file/-ofile/-o=file)
 
-	char		*arg_value;	// Argument value (if provided)
+	char		**args;		// Args found if there is more than one flag with arg
+	size_t		args_count;
+
 	int			present;	// 1 if the flag is in the command line
 }	t_flag;
 
 typedef struct
 {
 	t_flag	*flags; // Array of Flag definitions
-	int		count;  // Number of flags in the array
+	size_t		count;  // Number of flags in the array
 	int		argc;   // Original argc
 	char	**argv; // Original argv
 	int		pos;    // Current position in argv (during parsing)
+
+	char		**extra_args;		// Args found if there is more than one flag with arg
+	size_t		extra_args_count;
 }	t_flag_parser;
 
 # define FLAGS_COUNT(flags) sizeof(flags) / sizeof(t_flag)
