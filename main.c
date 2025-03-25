@@ -14,6 +14,8 @@ int main(int argc, char **argv)
 	parse(&flag_parser);
 
 	print_parsed_flags(&flag_parser);
+	cleanup_parser(&flag_parser);
+	
 	return 0;
 }
 
