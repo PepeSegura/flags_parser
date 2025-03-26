@@ -34,6 +34,7 @@ typedef struct
 }	t_flag_parser;
 
 # define FLAGS_COUNT(flags) sizeof(flags) / sizeof(t_flag)
+# define INIT_FLAG(short_name, long_name, has_arg) {short_name, long_name, has_arg, NULL, 0, 0}
 
 t_flag_parser	parser_init(t_flag *flags, int count, int argc, char **argv);
 void			parse(t_flag_parser *parser);

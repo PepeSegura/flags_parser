@@ -28,11 +28,11 @@ Create an array of `t_flag` structures:
 
 ```c
 t_flag flags[] = {
-    // Format: {short_name, long_name, argument_requirement}
-    {'v', "verbose", NO_ARG},   // No argument
-    {'o', "output",  NEED_ARG}, // Requires argument
-    {'h', "help",    NO_ARG},
-    {0,   "version", NO_ARG}    // Long-only flag
+    // Format: INIT_FLAG(short_name, long_name, argument_requirement)
+    INIT_FLAG('v', "verbose", NO_ARG),   // No argument
+    INIT_FLAG('o', "output",  NEED_ARG), // Requires argument
+    INIT_FLAG('h', "help",    NO_ARG),
+    INIT_FLAG(0,   "version", NO_ARG)    // Long-only flag
 };
 ```
 
