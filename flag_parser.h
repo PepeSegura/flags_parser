@@ -23,14 +23,14 @@ typedef struct
 
 typedef struct
 {
-	t_flag	*flags; // Array of Flag definitions
-	size_t		count;  // Number of flags in the array
-	int		argc;   // Original argc
-	char	**argv; // Original argv
-	int		pos;    // Current position in argv (during parsing)
+	t_flag	*flags;			// Array of Flag definitions
+	size_t	count;			// Number of flags in the array
+	int		argc;			// Original argc
+	char	**argv;			// Original argv
+	int		pos;			// Current position in argv (during parsing)
 
-	char		**extra_args;		// Args found if there is more than one flag with arg
-	size_t		extra_args_count;
+	char	**extra_args;	// Extra args that are not a flag or a flag argument
+	size_t	extra_args_count;
 }	t_flag_parser;
 
 # define FLAGS_COUNT(flags) sizeof(flags) / sizeof(t_flag)
