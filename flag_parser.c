@@ -101,7 +101,7 @@ t_flag*	match_long_flag(t_flag_parser *parser, const char *name)
 
 	for (size_t i = 0; i < parser->count; i++)
 	{
-		if (strcmp(parser->flags[i].long_name, name) == 0)
+		if (parser->flags[i].long_name && strcmp(parser->flags[i].long_name, name) == 0)
 		{
 			parser->flags[i].present++;
 			parse_long_flag_arg(parser, &parser->flags[i], arg);
